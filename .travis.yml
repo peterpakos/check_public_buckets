@@ -1,0 +1,16 @@
+language: python
+python:
+  - "2.7"
+  - "3.6"
+install:
+  - pip install -r requirements.txt
+  - pip install pycodestyle
+script:
+  - pycodestyle --max-line-length=120 check_public_buckets *.py
+  - python ./check_public_buckets --help
+notifications:
+  email:
+    on_success: change
+    on_failure: always
+    recipients:
+      - peter@pakos.uk
